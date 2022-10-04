@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
 		"windwp/nvim-autopairs",
 		config = function() require("nvim-autopairs").setup {} end
 	}
-	
+
 	-- THEMES
 	use {'folke/tokyonight.nvim'}
 	use {'dracula/vim', as = 'dracula'}
