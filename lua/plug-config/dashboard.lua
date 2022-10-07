@@ -24,7 +24,6 @@ db.custom_header = {
 	'       ▐ ▐ ▐▐ ▌    ▀▀▄▀▌▐  ▌  ▌        ',
 	'       ▌  ▌▐ ▌        ▐▀▄▌ ▐           ',
 }
-
 db.custom_center = {
 	{desc = 'Hi'}
 }

@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
 		'romgrk/barbar.nvim',
 		requires = {'kyazdani42/nvim-web-devicons'}
 	}
-	use 'feline-nvim/feline.nvim'
+	use {'feline-nvim/feline.nvim'}
 	use {'glepnir/dashboard-nvim'}
 	use {
 		"windwp/nvim-autopairs",
@@ -37,4 +37,12 @@ return require('packer').startup(function(use)
 	-- THEMES
 	use {'folke/tokyonight.nvim'}
 	use {'dracula/vim', as = 'dracula'}
+
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 end)
+
+

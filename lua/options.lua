@@ -7,6 +7,7 @@ cmd "let g:coq_settings = { 'auto_start': 'shut-up' }"
 opt.tabstop=2
 opt.shiftround = true
 opt.shiftwidth=2
+opt.number = true
 opt.relativenumber = true
 opt.syntax = "enable"
 opt.termguicolors = true

@@ -1,18 +1,22 @@
 local expr_opts = {noremap = true, expr = true, silent = true}
-local map = vim.api.nvim_set_keymap
+--local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local builtin = require('telescope.builtin')
+--vim.g.mapleader = " "
 
 -- Ctrl keys
-map("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
-map("n", "<C-s>", "<Cmd>w<CR>", opts)
+map("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", opts)
+map({'n', 'i', 'v'}, "<C-s>", "<Cmd>w<CR>", opts)
 
 -- Func keys
 map("n", "<F9>", ":make run<CR><CR>", opts)
+map("n", "<F8>", "<Cmd>!gradle --console plain run<CR>", opts)
 
 -- set tab hotkeys
-	-- move  
-map("n", "<tab>", "<Cmd>BufferPrevious<CR>", opts)
-map("n", "<S-tab>", "<Cmd>BufferNext<CR>", opts)
+-- move  
+map("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", opts)
+map("n", "<tab>", "<Cmd>BufferNext<CR>", opts)
 
 map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
 map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
@@ -31,4 +35,16 @@ map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
 -- Close buffer
 map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+
+map("n", "<A-j>", "<Cmd>wincmd j<CR>", opts)
+map("n", "<A-k>", "<Cmd>wincmd k<CR>", opts)
+map("n", "<A-h>", "<Cmd>wincmd h<CR>", opts)
+map("n", "<A-l>", "<Cmd>wincmd l<CR>", opts)
+
+-- telescope builtin
+map('n', 'ff', builtin.find_files, {})
+map('n', 'fg', builtin.live_grep, {})
+map('n', 'fb', builtin.buffers, {})
+map('n', 'fh', builtin.help_tags, {})
+
 

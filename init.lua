@@ -1,7 +1,6 @@
--- vim opt
 require('options')
+require('plug-config.load')
 require('keymaps')
 require('plugins')
-require('plug-config.load')
 
 
