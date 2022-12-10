@@ -1,5 +1,5 @@
 require('options')
-require('plug-config.load')
+require('list-plug.load')
 require('keymaps')
 require('plugins')
 

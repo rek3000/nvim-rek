@@ -1,8 +1,0 @@
-require "plug-config.dashboard"
-require "plug-config.autopairs"
-require "plug-config.mason"
-require "plug-config.feline"
-require "plug-config.nvim-tree"
-require "plug-config.nvim-lsp"
-require "plug-config.nvim-ts"
-require "plug-config.telescope"
