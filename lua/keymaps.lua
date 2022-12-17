@@ -3,7 +3,9 @@ local expr_opts = {noremap = true, expr = true, silent = true}
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
---vim.g.mapleader = " "
+vim.g.mapleader = " "
+
+map("n", "<leader>th", "<Cmd>TransparentToggle<CR>", opts)
 
 -- Ctrl keys
 map("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", opts)

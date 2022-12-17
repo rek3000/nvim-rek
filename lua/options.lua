@@ -1,7 +1,7 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
-cmd "colorscheme tokyonight-moon"
+ cmd "colorscheme tokyonight-moon"
 opt.mouse="a"
 cmd "let g:coq_settings = { 'auto_start': 'shut-up' }"
 --vim.api.nvim_set_option("clipboard","unnamed")
