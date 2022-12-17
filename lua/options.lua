@@ -12,4 +12,4 @@ opt.relativenumber = true
 opt.syntax = "enable"
 opt.termguicolors = true
 opt.scrolloff = 5
-
+vim.g.mapleader = " "
