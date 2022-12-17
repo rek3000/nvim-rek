@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
     end
 	}
 	use {'xiyaowong/nvim-transparent'}
+	use {'tpope/vim-fugitive'}
 end)
 
 
