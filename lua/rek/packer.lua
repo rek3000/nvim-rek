@@ -28,4 +28,13 @@ return require('packer').startup(function(use)
 
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use {'norcalli/nvim-colorizer.lua'}
+
+    -- use({
+    --   "L3MON4D3/LuaSnip",
+    --   -- follow latest release.
+    --   tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    --   -- install jsregexp (optional!:).
+    --   run = "make install_jsregexp"
+    -- })
+    -- use "rafamadriz/friendly-snippets"
 end)
