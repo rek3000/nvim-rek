@@ -1,4 +1,4 @@
 custom
 spell
-plugin/
-rek/current-theme.lua
+./plugin/*
+lua/current-theme.lua
