@@ -1,3 +1,5 @@
+vim.filetype.add({ extension = { ejs = "ejs" } })
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -21,7 +23,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 --vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
-
+vim.opt.colorcolumn = "90"
+-- vim.opt.colorcolumn = "+1"
 vim.g.mapleader = " "
-

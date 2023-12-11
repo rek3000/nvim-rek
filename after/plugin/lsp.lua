@@ -1,22 +1,50 @@
 require("mason").setup()
--- require("luasnip.loaders.from_vscode").lazy_load()
+local mslsp = require("mason-lspconfig")
 local lsp = require("lspconfig")
 
-vim.g.coq_settings = { auto_start = true }
+vim.g.coq_settings = {
+  auto_start = 'shut-up',
+}
+vim.cmd('COQnow -s')
 
 local coq = require("coq")
 
-lsp.lua_ls.setup(coq.lsp_ensure_capabilities()) 
-lsp.html.setup(coq.lsp_ensure_capabilities()) 
-lsp.cssls.setup(coq.lsp_ensure_capabilities()) 
--- lsp.ltex.setup(coq.lsp_ensure_capabilities()) 
--- lsp.quick_lint_js.setup(coq.lsp_ensure_capabilities()) 
-
-require("coq_3p") {
-  { src = "builtin/css"     },
-  { src = "builtin/html"    },
-  { src = "builtin/js"      },
+mslsp.setup_handlers {
+    function(server)
+        lsp[server].setup(coq.lsp_ensure_capabilities())
+    end
 }
 
 
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
