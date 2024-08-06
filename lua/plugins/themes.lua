@@ -1,0 +1,20 @@
+return {
+  "rose-pine/neovim",
+  "catppuccin/nvim",
+  "folke/tokyonight.nvim",
+  "rebelot/kanagawa.nvim",
+  -- "daltonmenezes/aura-theme",
+  "EdenEast/nightfox.nvim",
+  "nyoom-engineering/oxocarbon.nvim",
+  "savq/melange-nvim",
+  -- "uloco/bluloco.nvim",
+  "sainnhe/everforest",
+  "ellisonleao/gruvbox.nvim",
+  "sainnhe/sonokai",
+  "marko-cerovac/material.nvim",
+  "fenetikm/falcon",
+  "Mofiqul/dracula.nvim",
+  "ramojus/mellifluous.nvim",
+  "FrenzyExists/aquarium-vim",
+}
+

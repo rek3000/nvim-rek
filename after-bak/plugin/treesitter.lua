@@ -25,3 +25,6 @@ require 'nvim-treesitter.configs'.setup {
 -- local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
 -- ft_to_parser.ejs = "html"
 vim.treesitter.language.register('html', 'ejs')
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})

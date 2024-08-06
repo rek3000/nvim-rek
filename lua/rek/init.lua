@@ -1,3 +1,3 @@
 require("rek.remap")
-require("rek.packer")
+require("rek.lazy")
 require("rek.set")

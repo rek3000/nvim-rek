@@ -1,87 +1,9 @@
-vim.cmd [[packadd packer.nvim]]
+return {
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use "nvim-lua/plenary.nvim"
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    -- or                            , branch = '0.1.x',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
-  use {
-    'andrew-george/telescope-themes',
-    config = function()
-      require('telescope').load_extension('themes')
-    end
-  }
-
-  -- COLORSCHEME
-  -- use { "rose-pine/neovim", as = "rose-pine" }
-  -- use { "catppuccin/nvim", as = "catppuccin" }
-  -- use { "folke/tokyonight.nvim", as = "tokyonight" }
-  -- use { "rebelot/kanagawa.nvim", as = "kanagawa" }
-  -- use { "daltonmenezes/aura-theme", as = "aura" }
-  -- use { "EdenEast/nightfox.nvim", as = "nightfox" }
-  -- use { "nyoom-engineering/oxocarbon.nvim", as = "oxocarbon" }
-  -- use { "savq/melange-nvim", as = "melange" }
-  -- use { "uloco/bluloco.nvim", as = "bluloco", requires = { 'rktjmp/lush.nvim' }}
-  -- use { "sainnhe/everforest", as = "everforest" }
-  -- use { "ellisonleao/gruvbox.nvim", as = "gruvbox" }
-  -- use { "sainnhe/sonokai", as = "sonokai" }
-  -- use { "marko-cerovac/material.nvim", as = "material" }
-  -- use { "fenetikm/falcon", as = "falcon" }
-  -- use { "Mofiqul/dracula.nvim", as = "dracula" }
-  -- use { "ramojus/mellifluous.nvim", as = "mellifluous" }
-  -- use { "FrenzyExists/aquarium-vim", as = "aquarium" }
-
-  use { "rose-pine/neovim", as = "rose-pine" }
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use { "folke/tokyonight.nvim" }
-  use { "rebelot/kanagawa.nvim" }
-  use { "daltonmenezes/aura-theme" }
-  use { "EdenEast/nightfox.nvim" }
-  use { "nyoom-engineering/oxocarbon.nvim" }
-  use { "savq/melange-nvim" }
-  use { "uloco/bluloco.nvim", requires = { 'rktjmp/lush.nvim' } }
-  use { "sainnhe/everforest" }
-  use { "ellisonleao/gruvbox.nvim" }
-  use { "sainnhe/sonokai" }
-  use { "marko-cerovac/material.nvim" }
-  use { "fenetikm/falcon" }
-  use { "Mofiqul/dracula.nvim" }
-  use { "ramojus/mellifluous.nvim" }
-  use { "FrenzyExists/aquarium-vim" }
-
-  -- UTILITIES
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  use {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    requires = { { "nvim-lua/plenary.nvim" } }
-  }
-  use('mbbill/undotree')
-  use('h-hg/fcitx.nvim')
-
-  -- LANGUAGE SERVER
-  use { 'ms-jpq/coq_nvim', branch = 'coq' }
-  use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-  use { 'ms-jpq/coq.thirdparty', branch = '3p' }
-  use { 'neovim/nvim-lspconfig' }
-  use { 'williamboman/mason.nvim' }
-  use { 'williamboman/mason-lspconfig.nvim' }
-
-  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-  use { 'norcalli/nvim-colorizer.lua' }
-
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
-
-  use {
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
@@ -109,13 +31,13 @@ return require('packer').startup(function(use)
     config = function()
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
       vim.fn.sign_define("DiagnosticSignError",
-        { text = " ", texthl = "DiagnosticSignError" })
+      { text = " ", texthl = "DiagnosticSignError" })
       vim.fn.sign_define("DiagnosticSignWarn",
-        { text = " ", texthl = "DiagnosticSignWarn" })
+      { text = " ", texthl = "DiagnosticSignWarn" })
       vim.fn.sign_define("DiagnosticSignInfo",
-        { text = " ", texthl = "DiagnosticSignInfo" })
+      { text = " ", texthl = "DiagnosticSignInfo" })
       vim.fn.sign_define("DiagnosticSignHint",
-        { text = "󰌵", texthl = "DiagnosticSignHint" })
+      { text = "󰌵", texthl = "DiagnosticSignHint" })
 
       require("neo-tree").setup({
         close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
@@ -391,5 +313,6 @@ return require('packer').startup(function(use)
 
       vim.cmd([[nnoremap \ :Neotree toggle<cr>]])
     end
+
   }
-end)
+}
