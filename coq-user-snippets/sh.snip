@@ -1,0 +1,188 @@
+snippet prelude
+  #!/usr/bin/env -S -- bash -Eeu -O dotglob -O nullglob -O extglob -O failglob -O globstar
+
+  set -o pipefail
+
+  cd -- "\${0%/*}"
+
+  $0
+
+
+snippet nofail
+  shopt -u failglob
+
+
+snippet shopt
+  set -Eeu
+  set -o pipefail
+  shopt -s -- dotglob nullglob extglob failglob globstar
+
+  $0
+
+
+snippet parse
+abbr argparse
+  OPTS=''
+  LONG_OPTS=''
+  GO="\$(getopt --options="\$OPTS" --longoptions="\$LONG_OPTS" --name="\$0" -- "\$@")"
+  eval -- set -- "\$GO"
+
+  while ((\$#)); do
+    case "\$1" in
+    --)
+      shift -- 1
+      break
+      ;;
+    *)
+      exit 1
+      ;;
+    esac
+  done
+
+  $0
+
+
+snippet cd
+  cd -- "\${0%/*}"
+  $0
+
+
+snippet which
+  command -v -- ${1:command}
+
+
+snippet failglob
+  shopt -s failglob globstar
+
+  $0
+
+
+snippet nullglob
+  shopt -s nullglob globstar
+
+  $0
+
+
+snippet lc
+  export -- LANG=C LC_ALL=C
+
+  $0
+
+
+snippet trap
+  cleanup() {
+    ${0:pkill -P \$\$}
+  }
+
+  trap -- cleanup EXIT
+
+
+snippet shellcheck-disable
+alias sc
+alias disable
+  # shellcheck disable=${0:0000}
+
+
+snippet println
+alias pl
+  printf -- '%s\\n' $0
+
+
+snippet join
+  printf -v ${1:VAR} -- '%q ' $0
+
+
+snippet stderr
+  >&2
+
+
+snippet stdout
+  2>&1
+
+
+snippet readarray
+alias ra
+abbr readarray <<<
+  readarray -t -d '' -- ${2:ARRAY} <<<"${1:VAR}"
+  $0
+
+
+snippet readline
+alias ra
+abbr read -r -d ''
+  read -r -d '' -- ${1:VAR}
+  $0
+
+
+snippet array
+  ${1:ARRAY}=(
+    ${2:item}
+  )
+  $0
+
+
+snippet map
+  declare -A -- ${1:MAP}=()
+  $0
+
+
+snippet for
+  for ${1:var} in "\${${2:ARRAY}[@]}"
+  do
+    ${0:...}
+  done
+
+
+snippet heredoc
+alias hd
+  read -r -d '' -- ${1:VARIABLE} <<- '${1:${EOF/.*/${0:/upcase}/s}}' || true
+  ${0:...}
+  ${1:EOF}
+
+
+snippet tee
+  tee <<-EOF
+    ${0:...}
+  EOF
+
+
+snippet lstrip
+  "\${${1:VARIABLE}#'${2:GLOB}'}"
+
+
+snippet rstrip
+  "\${${1:VARIABLE}%'${2:GLOB}'}"
+
+
+snippet tr
+  "\${${1:VARIABLE}//'${2:GLOB}'/'${3:REPLACE}'}"
+
+
+snippet upper
+  "\${${0:path}^^/}"
+
+
+snippet lower
+  "\${${0:path},,}"
+
+
+snippet ifs
+  IFS=\$'${1:\\n}'
+  $0
+  unset -- IFS
+
+
+snippet dirname
+  "\${${0:path}%/*}"
+
+
+snippet basename
+  "\${${0:path}##*/}"
+
+
+snippet perl
+  perl -CASD -wpe $0
+
+
+snippet watch
+  watchexec --shell none --restart -- $0

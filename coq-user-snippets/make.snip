@@ -1,0 +1,74 @@
+snippet prelude
+  MAKEFLAGS += --check-symlink-times
+  MAKEFLAGS += --jobs
+  MAKEFLAGS += --no-builtin-rules
+  MAKEFLAGS += --no-builtin-variables
+  MAKEFLAGS += --shuffle
+  MAKEFLAGS += --warn-undefined-variables
+  SHELL := bash
+  .DELETE_ON_ERROR:
+  .ONESHELL:
+  .SHELLFLAGS := --norc --noprofile -Eeuo pipefail -O dotglob -O nullglob -O extglob -O failglob -O globstar -c
+
+  .DEFAULT_GOAL := help
+
+  .PHONY: clean clobber
+
+  clean:
+    shopt -u failglob
+    rm -v -rf --
+
+  clobber: clean
+    shopt -u failglob
+    rm -v -rf --
+
+  include makelib/*.mk
+
+  $0
+
+
+snippet info
+  \$(info $0)
+
+
+snippet warning
+  \$(warning $0)
+
+
+snippet shell
+  \$(shell $0)
+
+
+snippet call
+  \$(call $0)
+
+
+snippet .PHONY
+alias .phony
+alias phony
+  .PHONY: ${1:target}
+
+  ${1:target}: ${0:...}
+
+
+snippet define
+  define ${1:target}
+  ${0:...}
+  endef
+
+
+snippet println
+  printf -- '%s\\n' $0
+  $0
+
+
+snippet glob
+  \$(shell shopt -u failglob && printf -- '%s ' ${0:./**/*})
+
+
+snippet watch
+  watchexec --shell none --restart -- $0
+
+
+snippet perl
+  perl -CASD -wpe $0

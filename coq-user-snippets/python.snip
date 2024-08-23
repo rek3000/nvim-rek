@@ -1,0 +1,25 @@
+snippet dataclass
+alias dc
+  @dataclass(frozen=True)
+  class ${1:Classname}:
+      ${2:prop}: ${0:type}
+
+
+snippet enum
+  @unique
+  class ${1:Classname}(Enum):
+      ${2:member} = ${0:auto()}
+
+
+snippet prelude
+  #!/usr/bin/env -S -- PYTHONSAFEPATH= python3
+
+  $0
+
+
+snippet ignore
+  # type: ignore
+
+
+snippet stack
+  __import__("inspect").stack()

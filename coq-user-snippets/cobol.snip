@@ -1,0 +1,12 @@
+snippet prelude
+  #!/usr/bin/env -S -- bash -Eeuo pipefail
+         *> . || cobc -Wall -x "\$0" -o "\${T:="\$(mktemp)"}" && exec -a "\$0" -- "\$T" "\$@"
+         >>SOURCE FORMAT FREE
+
+  IDENTIFICATION DIVISION.
+  PROGRAM-ID. Hello.
+  PROCEDURE DIVISION.
+
+  DISPLAY "Hello, world!".
+
+  $0

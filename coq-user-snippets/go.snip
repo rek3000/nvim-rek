@@ -1,0 +1,59 @@
+snippet prelude
+  // ; exec go run "\$0" "\$@"
+  package main
+
+  import (
+    "fmt"
+    "log"
+    "os"
+    "path/filepath"
+  )
+
+  func init() {
+    log.SetFlags(log.Lshortfile)
+  }
+
+  func main() {
+    self, err := os.Executable()
+    if err != nil {
+      log.Panicln(err)
+    }
+    dir := filepath.Dir(self)
+    if err := os.Chdir(dir); err != nil {
+      log.Panicln(err)
+    }
+    fmt.Println(self)
+
+    $0
+  }
+
+
+snippet bug
+  log.Printf("%#v\\n", $0)
+
+
+snippet testm
+  func TestMain(m *testing.M) {
+    code := m.Run()
+    $0
+    os.Exit(code)
+  }
+
+
+snippet unwind
+  defer func() {
+    if r := recover(); r != nil {
+      $0
+    }
+  }()
+
+
+snippet pt
+  func Test_${1:1}(t *testing.T) {
+    t.Parallel()
+    $0
+  }
+
+
+snippet bugtype
+  fmt.Println(reflect.TypeOf($0))

@@ -1,0 +1,91 @@
+snippet prelude
+  #!/usr/bin/env -S -- node
+
+  import { chdir } from "node:process";
+  import { dirname } from "node:path";
+  import { fileURLToPath } from "node:url";
+
+  const dir = dirname(fileURLToPath(import.meta.url));
+  chdir(dir);
+
+  $0
+
+
+snippet osascript
+  #!/usr/bin/env -S -- osascript -l JavaScript
+
+  "use strict";
+
+  ObjC.import("stdlib");
+
+  /**
+   * @type {string[]}
+   */
+  const [, , , arg0, ...argv] = ObjC.unwrap(
+    \$.NSProcessInfo.processInfo.arguments,
+  ).map(ObjC.unwrap);
+
+  const app = (() => {
+    const app = Application.currentApplication();
+    app.includeStandardAdditions = true;
+    return app;
+  })();
+
+  $0
+
+
+snippet iife
+  (() => {
+    $0
+  })()
+
+
+snippet aiife
+  await (async () => {
+    $0
+  })()
+
+
+snippet gen
+  (function* () {
+    $0
+  })()
+
+
+snippet agen
+  (async function* () {
+    $0
+  })()
+
+
+snippet cast
+  /** @type {${0:type}} */ (/** @type {unknown} */ (${1:val}));
+
+
+snippet type
+  /** @type {${0:type}} */
+
+
+snippet bug
+  const { inspect: ins } = require('node:util');
+  ins.defaultOptions = {
+    ...ins.defaultOptions,
+    breakLength: 120,
+    colors: true,
+    depth: Infinity,
+    getters: true,
+    maxArrayLength: 12,
+    numericSeparator: true,
+    showProxy: true,
+    sorted: true,
+  };
+
+
+  console.log(ins($0));
+
+
+  debugger;
+
+
+snippet inspect
+  console.log(ins($0));

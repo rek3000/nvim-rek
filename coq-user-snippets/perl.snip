@@ -1,0 +1,13 @@
+snippet prelude
+  #!/usr/bin/env -S -- perl -CASD -w
+
+  use Carp;
+  use English;
+  use File::Basename;
+  use autodie;
+  use strict;
+  use utf8;
+
+  chdir dirname(__FILE__);
+
+  $0

@@ -5,6 +5,7 @@
   "coq.artifacts": { "branch": "artifacts", "commit": "9c5067a471322c6bb866545e88e5b28c82511865" },
   "coq.thirdparty": { "branch": "3p", "commit": "87162d4dfd5eae2698332ce5da7efe5473f1fd27" },
   "coq_nvim": { "branch": "coq", "commit": "427a3ff9d467e564bfda98c5b56575450dfe3da8" },
+  "dashboard-nvim": { "branch": "master", "commit": "fabf5feec96185817c732d47d363f34034212685" },
   "dracula.nvim": { "branch": "main", "commit": "fdf503e52ec1c8aae07353604d891fe5a3ed5201" },
   "everforest": { "branch": "master", "commit": "4bca38c58be8255fa20a87670df684320974d88c" },
   "falcon": { "branch": "master", "commit": "634cef5919b14d0c68cec6fc7b094554e8ef9d7f" },
