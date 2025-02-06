@@ -35,7 +35,7 @@ return {
       local lsp = require("lspconfig")
       -- local builtin = require("telescope.builtin")
 
-      vim.g.coq_settings = { auto_start = true }
+      vim.g.coq_settings = { auto_start = 'shut-up' }
 
       local coq = require("coq")
 
@@ -89,7 +89,5 @@ return {
         end
       })
     end,
-
   }
-
 }
