@@ -26,3 +26,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.colorcolumn = "90"
 -- vim.opt.colorcolumn = "+1"
 vim.g.mapleader = " "
+vim.opt.laststatus = 3
+vim.opt.fillchars:append({ vert = "║" })
+vim.opt.fillchars:append({ horiz = "=" })
+-- vim.opt.fillchars:append({ vert = "│" })
+-- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", ctermbg = "NONE" })

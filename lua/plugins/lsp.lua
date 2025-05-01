@@ -62,8 +62,8 @@ return {
 
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+          -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+          -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
           vim.keymap.set('n', '<leader>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end, opts)
