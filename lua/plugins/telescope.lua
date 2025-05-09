@@ -2,13 +2,16 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
     },
   },
   {
     'andrew-george/telescope-themes',
     config = function()
-      require('telescope').load_extension('themes')
+      tele = require('telescope')
+      tele.load_extension('themes')
+      tele.load_extension("undo")
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>pf', function()
         builtin.find_files({ hidden = true })
@@ -22,6 +25,7 @@ return {
       vim.keymap.set('n', '<leader>:', builtin.commands, {})
       vim.keymap.set('n', '<leader>km', builtin.keymaps, {})
       vim.keymap.set('n', '<leader>K', builtin.man_pages, {})
+      vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
     end,
   }
 }

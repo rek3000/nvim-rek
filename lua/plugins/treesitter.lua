@@ -6,7 +6,7 @@ return {
         auto_install = true,
         hightlight = {
           enable = true,
-          additional_vim_regex_hightlighting = true,
+          additional_vim_regex_hightlighting = false,
         },
       }
       

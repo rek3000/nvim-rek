@@ -12,6 +12,7 @@ return {
         java = { "checkstyle" },
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
+        golang = { "golangci-lint" },
       }
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
         group = lint_augroup,

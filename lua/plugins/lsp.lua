@@ -39,12 +39,13 @@ return {
 
       local coq = require("coq")
 
-      mslsp.setup_handlers {
-        function(server)
-          lsp[server].setup(coq.lsp_ensure_capabilities())
-        end
-      }
+      -- mslsp.setup_handlers {
+      --   function(server)
+      --     lsp[server].setup(coq.lsp_ensure_capabilities())
+      --   end
+      -- }
       -- vim.keymap.set('i', '<C-S-K>', vim.g.coq_settings.keymap.eval_snips)
+      -- lsp[server].setup(coq.lsp_ensure_capabilities())
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)

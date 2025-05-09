@@ -79,7 +79,7 @@ return {
       -- Set the filetypes which barbar will offset itself for
       sidebar_filetypes = {
         -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
-        NvimTree = true,
+        NvimTree = false,
         -- Or, specify the text used for the offset:
         undotree = {
           text = 'undotree',
