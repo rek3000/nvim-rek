@@ -13,6 +13,7 @@ return {
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
         golang = { "golangci-lint" },
+        -- lua = { "selene" }
       }
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
         group = lint_augroup,
