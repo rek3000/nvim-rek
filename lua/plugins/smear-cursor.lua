@@ -19,19 +19,20 @@ return {
     -- Smear cursor in insert mode.
     -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
     smear_insert_mode = true,
-    -- cursor_color = "#ff8800",
-    -- stiffness = 0.3,                      -- 0.6      [0, 1]
-    -- trailing_stiffness = 0.1,             -- 0.4      [0, 1]
-    -- stiffness_insert_mode = 0.6,          -- 0.4      [0, 1]
-    -- trailing_stiffness_insert_mode = 0.6, -- 0.4      [0, 1]
-    -- distance_stop_animating = 0.5,        -- 0.1      > 0
-    cursor_color = "#b825a4",
-    stiffness = 0.8,
-    trailing_stiffness = 0.5,
+    stiffness = 0.8,                      -- 0.6      [0, 1]
+    trailing_stiffness = 0.5,             -- 0.4      [0, 1]
+    stiffness_insert_mode = 0.7,          -- 0.5      [0, 1]
+    trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
+    damping = 0.8,                        -- 0.65     [0, 1]
+    damping_insert_mode = 0.8,            -- 0.7      [0, 1]
     distance_stop_animating = 0.5,        -- 0.1      > 0
-    trailing_exponent = 3,
-    never_draw_over_target = true,
-    hide_target_hack = true,
-    gamma = 1,
+    -- cursor_color = "#b825a4",
+    -- stiffness = 0.8,
+    -- trailing_stiffness = 0.5,
+    -- distance_stop_animating = 0.5,        -- 0.1      > 0
+    -- trailing_exponent = 3,
+    -- never_draw_over_target = true,
+    -- hide_target_hack = true,
+    -- gamma = 1,
   },
 }

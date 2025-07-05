@@ -19,7 +19,10 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "number"
+vim.opt.signcolumn = 'yes:1' -- Always show, 2 columns wide
+
 vim.opt.isfname:append("@-@")
 
 --vim.opt.updatetime = 50
