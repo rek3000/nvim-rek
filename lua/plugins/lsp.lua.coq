@@ -31,7 +31,6 @@ return {
     },
     config = function()
       local mslsp = require("mason-lspconfig")
-      local lsp = require("lspconfig")
 
       mslsp.setup {
         automatic_enable = false,

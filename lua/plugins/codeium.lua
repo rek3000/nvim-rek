@@ -34,7 +34,7 @@ return {
         -- Key bindings for managing completions in virtual text mode.
         key_bindings = {
           -- Accept the current completion.
-          accept = "<C-y>",
+          accept = "<Tab>",
           -- Accept the next word.
           accept_word = false,
           -- Accept the next line.
